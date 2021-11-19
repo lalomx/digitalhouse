@@ -1,22 +1,24 @@
-const sumar = require('./sumar') // vanila
-const restar = require('./restar')
-const multiplicar = require('./multiplicar')
-const division = require('./division')
+console.log(process.argv)
 
-// import restar from './restar' // ES6 EcmaScript
-// babel
+// const sumar = require('./sumar') // vanila
+// const restar = require('./restar')
+// const multiplicar = require('./multiplicar')
+// const division = require('./division')
 
-// camelCase 
-// pascalCase
+// // import restar from './restar' // ES6 EcmaScript
+// // babel
 
-const suma = sumar( 10, 2)
-const resta = restar(10, 2)
-const mult = multiplicar(10, 2)
-const div = division(10, 2)
-const entreCero = division(10, 0)
+// // camelCase 
+// // pascalCase
 
-console.log(suma)
-console.log(resta)
-console.log(mult)
-console.log(div)
-console.log(entreCero)
+// const suma = sumar( 10, 2)
+// const resta = restar(10, 2)
+// const mult = multiplicar(10, 2)
+// const div = division(10, 2)
+// const entreCero = division(10, 0)
+
+// console.log(suma)
+// console.log(resta)
+// console.log(mult)
+// console.log(div)
+// console.log(entreCero)

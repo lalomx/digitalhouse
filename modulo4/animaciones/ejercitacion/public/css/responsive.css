@@ -1,0 +1,29 @@
+@media (min-width: 361px){
+  main section article .description{
+      display: block;
+  }
+
+
+  main section div.products{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+  }
+  
+  main section div.products article{
+      width: 45%;
+  }
+
+  .price,
+  .discount{
+      width: 50%;
+  }
+}
+
+@media (min-width: 769px){
+  main section div.products article{
+      width: 22%;
+  }
+}
