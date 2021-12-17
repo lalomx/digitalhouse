@@ -1,0 +1,4 @@
+El usuario ingreso a la ruta: /admins
+El usuario ingreso a la ruta: /users
+El usuario ingreso a la ruta: /products
+El usuario ingreso a la ruta: /services
