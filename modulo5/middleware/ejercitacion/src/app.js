@@ -42,10 +42,34 @@ app.get('/products', (req,res) => { // DE RUTA
   res.send("products")
 })
 
-app.get('/admins', (req,res) => { // DE RUTA
+// app.get(ruta, middleware, controller)
+app.get('/admin/:asd', (req, res, next) => {
+  const allowedUsers = ["Ada", "Tim"]
+  const p = req.params.asd
+  const user = req.query.user
   console.log("/admins")
-  res.send("admins")
+
+  // req.cookies
+  // req.session
+
+  const usr = allowedUsers.find(us => us == user)
+  console.log(u)
+  if(usr) {
+    next()
+  } else {
+    res.send("no tienes privilegios")
+  }
+}, (req,res) => { // DE RUTA
+  res.send("hola")
 })
+
+// http://localhost:3000/admin/hola?user=Ada
+
+// Schema -> HTTP
+// DOMAIN -> localhost
+// PORT -> 3000
+// PATH -> /admin/hola
+// QUERY -> user=Ada
 
 app.get('/services', (req,res) => { // DE RUTA
   console.log("/services")
