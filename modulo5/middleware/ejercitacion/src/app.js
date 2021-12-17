@@ -5,6 +5,9 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 
+const main = require('./routes/main');
+const middleware = require('../src/middlewares/userLogs.js');
+
 // ************ express() - (don't touch) ************
 const app = express();
 
@@ -14,74 +17,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
+app.use(middleware);
+
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
 app.set('views', './src/views'); // Seteo de la ubicación de la carpeta "views"
 
 
-const middleware = require('./middlewares/userLogs');
-
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
-// const mainRouter = require('./routes/main');
 
-app.use(middleware) // GLOBAL
-
-app.get('/', (req,res) => {
-  res.send("hola munddo")
-});
-
-app.get('/users', (req,res) => { // DE RUTA
-  console.log("/users")
-  res.send("users")
-})
-
-app.get('/products', (req,res) => { // DE RUTA
-  console.log("/products")
-  res.send("products")
-})
-
-// app.get(ruta, middleware, controller)
-app.get('/admin/:asd', (req, res, next) => {
-  const allowedUsers = ["Ada", "Tim"]
-  const p = req.params.asd
-  const user = req.query.user
-  console.log("/admins")
-
-  // req.cookies
-  // req.session
-
-  const usr = allowedUsers.find(us => us == user)
-  console.log(u)
-  if(usr) {
-    next()
-  } else {
-    res.send("no tienes privilegios")
-  }
-}, (req,res) => { // DE RUTA
-  res.send("hola")
-})
-
-// http://localhost:3000/admin/hola?user=Ada
-
-// Schema -> HTTP
-// DOMAIN -> localhost
-// PORT -> 3000
-// PATH -> /admin/hola
-// QUERY -> user=Ada
-
-app.get('/services', (req,res) => { // DE RUTA
-  console.log("/services")
-  res.send("services")
-})
-
-app.get('/logs', (req,res) => { // DE RUTA
-  console.log("/logs")
-  res.send("logs")
-})
-
-
+app.use('/',main);
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************
