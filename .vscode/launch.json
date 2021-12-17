@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/modulo5/crud2/src/bin/www"
+      "program": "${workspaceFolder}/modulo5/middleware/ejercitacion/src/bin/www"
     }
   ]
 }

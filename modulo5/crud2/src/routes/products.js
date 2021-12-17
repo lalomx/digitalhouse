@@ -19,6 +19,13 @@ const productsController = require('../controllers/productsController');
 
 // /products
 /*** GET ALL PRODUCTS ***/ 
+
+// /
+// /productos
+// /
+// /productos/create
+
+// REST -> REst compliant
 router.get('/', productsController.index); 
 
 /*** CREATE ONE PRODUCT ***/ 
