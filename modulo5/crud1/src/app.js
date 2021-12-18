@@ -51,3 +51,10 @@ app.use((err, req, res, next) => {
 
 // ************ exports app - dont'touch ************
 module.exports = app;
+
+// cd modulo5/crud1
+// npm install
+
+// npm start
+
+// Express generator
