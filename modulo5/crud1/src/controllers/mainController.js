@@ -23,7 +23,6 @@ const controller = {
       }
     })
 
-
     res.render("index", { visited, inSale });
 	},
 	search: (req, res) => {
