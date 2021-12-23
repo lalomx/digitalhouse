@@ -23,8 +23,7 @@ const controller = {
 
     const finalPrice = discount / 100 * price;
 
-    product.finalPrice = finalPrice
-
+    product.finalPrice = finalPrice;
 
     res.render("detail", { product })
 	},
@@ -41,7 +40,7 @@ const controller = {
     const newProduct = {
       id: products[products.length - 1].id + 1,
       ...req.body,
-      image: ""
+      image: req.file.filename
     }
 
     products.push(newProduct)
@@ -74,13 +73,13 @@ const controller = {
     products[idx] = {
       id,
       ...req.body,
-      image: ""
+      image: products[idx].image
     }
 
     // const newArrar = [...products]
 
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-    res.send("ok") // res.render()
+    res.redirect("/products/detail/" + id) // res.render()
 	},
 
 	// Delete - Delete one product from DB
@@ -92,7 +91,7 @@ const controller = {
     products.splice(idx, 1)
 
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-    res.send("ok") // res.render()
+    res.redirect("/products") // res.render()
 	}
 };
 
